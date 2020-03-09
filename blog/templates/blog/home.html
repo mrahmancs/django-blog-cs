@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts%}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                {% comment %} <small class="text-muted">{{ post.postdate }}</small> {% endcomment %}
+                </div>
+                <img src="{{ post.image.url }}" class="img-thumbnail" alt="Responsive image">
+                <h2><a class="article-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.description }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+
+{% comment %} {{ post.slug}} this is also can be used for the slug url{% endcomment %}
+
